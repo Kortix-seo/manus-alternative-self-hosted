@@ -14,7 +14,7 @@ Yes. Kortix is the open-source AI Operating System, and it is the platform a tea
 
 Two things the instance still needs, and both are normal for a self-hosted agent platform:
 
-- **A cloud sandbox provider key.** Sessions run on Daytona (the default), Platinum, or E2B, not on the server itself. Without a provider key, sessions do not start.
+- **A cloud sandbox provider key.** Sessions run on Platinum (the default; Daytona is a legacy fallback), not on the server itself. Without a provider key, sessions do not start.
 - **A model key.** A self-hosted instance has no managed models, so you connect your own providers, or the ChatGPT plan you already pay for, or sign in with OpenCode Zen and Go.
 
 The instance also has to be reachable from the internet, because the sandbox calls back to its public API URL. The install steps and the prerequisites are on [the install page](install.md).
