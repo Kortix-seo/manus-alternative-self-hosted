@@ -10,7 +10,7 @@ A self-hosted Kortix instance is the full open-source platform on a server you c
 | DNS A or AAAA records for `<domain>` and `api.<domain>` | Point both at the server before the first start. Caddy needs them to get the TLS certificate. |
 | Ports 80 and 443 open inbound | Caddy terminates TLS and routes traffic on them. |
 | A wildcard record `*.p.<domain>` | For sandbox previews. Use it on every public instance: without it, browser previews fall back to a path proxy that breaks root-absolute links, and `doctor` fails. |
-| A sandbox provider key | Daytona, Platinum or E2B. Without one, sessions do not start. |
+| A sandbox provider key | Platinum or the legacy Daytona fallback. Without one, sessions do not start. |
 | A model provider key | You add it in the web app after the first sign-in. A self-hosted instance has no managed models. |
 
 The CLI runs on Linux and macOS, on x86_64 and arm64.
@@ -70,7 +70,7 @@ Domain mode is the production setup. Tunnel mode is for evaluation on your own m
 | Admin email | `KORTIX_PLATFORM_ADMIN_EMAILS`, comma-separated. These people are platform admins. |
 | Enterprise features | `ENTERPRISE_LICENSE_AVAILABLE`. With it enabled, it unlocks SSO, SCIM, role-based access control, and audit. |
 | Restrict account creation | On by default. Only a platform admin can create a new account. |
-| Sandbox provider | One of `daytona`, `platinum`, `e2b`, written to `ALLOWED_SANDBOX_PROVIDERS`. |
+| Sandbox provider | `platinum`, or `daytona` as the legacy fallback, written to `ALLOWED_SANDBOX_PROVIDERS`. |
 
 ## First sign-in, and secure the instance
 
@@ -95,7 +95,7 @@ Do steps 1 and 2 as soon as the stack starts. Until you set `EMAIL_URL` or `DISA
 
 Off the box:
 
-- **Sandboxes.** Every session runs on Daytona (the default), Platinum, or E2B. `kortix-api` creates them with your provider key, and the sandbox calls back to the instance's public API URL, `KORTIX_URL`.
+- **Sandboxes.** Every session runs on Platinum (the default; Daytona is a legacy fallback). `kortix-api` creates them with your provider key, and the sandbox calls back to the instance's public API URL, `KORTIX_URL`.
 - **Images.** `kortix/kortix-frontend`, `kortix/kortix-api`, and `kortix/kortix-gateway` on Docker Hub. Pulls need no credentials.
 - **Model providers.** The gateway calls the providers your projects connect.
 
