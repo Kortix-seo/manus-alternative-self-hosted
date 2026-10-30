@@ -1,6 +1,6 @@
-# Kortix is the open-source AI Operating System
+# Kortix is the open-source CompanyOS
 
-Kortix is the open-source AI Operating System, and it is the agent platform a team can self-host when it wants to own the result instead of renting a hosted agent. Your agents, their skills, your company memory, and every connector live in one git repo you own, and every session runs on its own cloud computer. This repository is the operator's guide to installing that stack yourself.
+Kortix is the open-source CompanyOS, and it is the agent platform a team can self-host when it wants to own the result instead of renting a hosted agent. Your agents, their skills, your company memory, and every connector live in one git repo you own, and every session runs on its own cloud computer. This repository is the operator's guide to installing that stack yourself.
 
 Manus runs your tasks in Manus's cloud, on a model Manus selects, with no repo you clone and no self-host path. Kortix is the alternative that keeps the platform, the configuration, the model keys, and the review gate on your side. That difference is the reason this guide exists.
 
